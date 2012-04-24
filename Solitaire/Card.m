@@ -53,42 +53,53 @@
             s = @"Unknown!";
             break;
     }
-    return [NSString stringWithFormat:@"%d of %@", rank, s];
+    
+    NSString *r;
+    switch (rank) {
+        case ACE:
+            r = @"Ace";
+            break;
+        case JACK:
+            r = @"Jack";
+            break;
+        case QUEEN:
+            r = @"Queen";
+            break;
+        case KING:
+            r = @"King";
+            break;
+        default:
+            r = [NSString stringWithFormat:@"%d", rank];
+            break;
+    }
+    
+    return [NSString stringWithFormat:@"%@ of %@", r, s];
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    Card *copy = [[[self class] allocWithZone:zone] initWithRank:rank Suit:suit];
-    return copy;
+    return [[Card allocWithZone:zone] initWithRank:rank Suit:suit];
 }
 
 - (BOOL)isBlack
 {
-    if (suit == SPADES || suit == CLUBS) {
-        return YES;
-    }
-    return NO;
+    return suit == SPADES || suit == CLUBS;
 }
 
 - (BOOL)isRed
 {
-    if (suit == DIAMONDS || suit == HEARTS) {
-        return YES;
-    }
-    return NO;
+    return suit == DIAMONDS || suit == HEARTS;
 }
 
 - (BOOL)isSameColor:(Card *)other
 {
-    if (suit == [other suit])
-        return YES;
-    return NO;
+    return ([self isBlack] && [other isBlack]) || ([self isRed] && [other isRed]);
 }
 
 + (NSArray *)deck
 {
-    NSMutableArray *deck = [[NSMutableArray alloc] initWithCapacity:52];
-    for (uint i = 0; i <= KING; i++) {
+    NSMutableArray *deck = [[NSMutableArray alloc] init];
+    for (uint i = ACE; i <= KING; i++) {
         for (uint j = SPADES; j <= HEARTS; j++) {
             Card *card = [[Card alloc] initWithRank:i Suit:j];
             [deck addObject:card];

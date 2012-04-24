@@ -19,7 +19,10 @@
 - (NSArray *)stock;
 - (NSArray *)waste;
 - (NSArray *)foundation:(uint)i;
+- (NSArray *)foundationWithCard:(Card *)card;
 - (NSArray *)tableau:(uint)i;
+- (NSArray *)tableauWithCard:(Card *)card;
+- (NSArray *)stackWithCard:(Card *)card;
 
 - (BOOL)isCardFaceUp:(Card *)card;
 
@@ -41,5 +44,7 @@
 - (void)didDealCard;
 
 - (void)collectWasteCardsIntoStock;
+
++ (void)shuffleDeck:(NSMutableArray *)deck;
 
 @end
