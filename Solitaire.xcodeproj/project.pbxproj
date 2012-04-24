@@ -15,6 +15,9 @@
 		8B19360015471C16005580DA /* SolitaireAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1935FF15471C16005580DA /* SolitaireAppDelegate.m */; };
 		8B19360315471C16005580DA /* SolitaireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B19360215471C16005580DA /* SolitaireViewController.m */; };
 		8B19360615471C16005580DA /* SolitaireViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B19360415471C16005580DA /* SolitaireViewController.xib */; };
+		8B19360E15471C32005580DA /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B19360D15471C32005580DA /* Card.m */; };
+		8B19361915471ED0005580DA /* Solitaire.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B19361815471ED0005580DA /* Solitaire.m */; };
+		8B19361C1547209A005580DA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8B19361B1547209A005580DA /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +25,20 @@
 		8B1935EF15471C16005580DA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8B1935F115471C16005580DA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8B1935F315471C16005580DA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		8B1935F715471C16005580DA /* Solitaire-Info.plist */ = {isa = PBXFileReference; path = "Solitaire-Info.plist"; sourceTree = "<group>"; };
+		8B1935F715471C16005580DA /* Solitaire-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Solitaire-Info.plist"; sourceTree = "<group>"; };
 		8B1935F915471C16005580DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8B1935FB15471C16005580DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8B1935FD15471C16005580DA /* Solitaire-Prefix.pch */ = {isa = PBXFileReference; path = "Solitaire-Prefix.pch"; sourceTree = "<group>"; };
-		8B1935FE15471C16005580DA /* SolitaireAppDelegate.h */ = {isa = PBXFileReference; path = SolitaireAppDelegate.h; sourceTree = "<group>"; };
+		8B1935FD15471C16005580DA /* Solitaire-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Solitaire-Prefix.pch"; sourceTree = "<group>"; };
+		8B1935FE15471C16005580DA /* SolitaireAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SolitaireAppDelegate.h; sourceTree = "<group>"; };
 		8B1935FF15471C16005580DA /* SolitaireAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SolitaireAppDelegate.m; sourceTree = "<group>"; };
-		8B19360115471C16005580DA /* SolitaireViewController.h */ = {isa = PBXFileReference; path = SolitaireViewController.h; sourceTree = "<group>"; };
+		8B19360115471C16005580DA /* SolitaireViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SolitaireViewController.h; sourceTree = "<group>"; };
 		8B19360215471C16005580DA /* SolitaireViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SolitaireViewController.m; sourceTree = "<group>"; };
 		8B19360515471C16005580DA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SolitaireViewController.xib; sourceTree = "<group>"; };
+		8B19360C15471C32005580DA /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		8B19360D15471C32005580DA /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		8B19361715471ED0005580DA /* Solitaire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Solitaire.h; sourceTree = "<group>"; };
+		8B19361815471ED0005580DA /* Solitaire.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Solitaire.m; sourceTree = "<group>"; };
+		8B19361B1547209A005580DA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +58,7 @@
 		8B1935E015471C16005580DA = {
 			isa = PBXGroup;
 			children = (
+				8B19361B1547209A005580DA /* README.md */,
 				8B1935F515471C16005580DA /* Solitaire */,
 				8B1935EE15471C16005580DA /* Frameworks */,
 				8B1935EC15471C16005580DA /* Products */,
@@ -82,6 +91,10 @@
 				8B19360115471C16005580DA /* SolitaireViewController.h */,
 				8B19360215471C16005580DA /* SolitaireViewController.m */,
 				8B19360415471C16005580DA /* SolitaireViewController.xib */,
+				8B19360C15471C32005580DA /* Card.h */,
+				8B19360D15471C32005580DA /* Card.m */,
+				8B19361715471ED0005580DA /* Solitaire.h */,
+				8B19361815471ED0005580DA /* Solitaire.m */,
 				8B1935F615471C16005580DA /* Supporting Files */,
 			);
 			path = Solitaire;
@@ -152,6 +165,7 @@
 			files = (
 				8B1935FA15471C16005580DA /* InfoPlist.strings in Resources */,
 				8B19360615471C16005580DA /* SolitaireViewController.xib in Resources */,
+				8B19361C1547209A005580DA /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +179,8 @@
 				8B1935FC15471C16005580DA /* main.m in Sources */,
 				8B19360015471C16005580DA /* SolitaireAppDelegate.m in Sources */,
 				8B19360315471C16005580DA /* SolitaireViewController.m in Sources */,
+				8B19360E15471C32005580DA /* Card.m in Sources */,
+				8B19361915471ED0005580DA /* Solitaire.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +294,7 @@
 				8B19360B15471C16005580DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
