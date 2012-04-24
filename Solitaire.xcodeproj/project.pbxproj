@@ -1,0 +1,285 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B1935F015471C16005580DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1935EF15471C16005580DA /* UIKit.framework */; };
+		8B1935F215471C16005580DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1935F115471C16005580DA /* Foundation.framework */; };
+		8B1935F415471C16005580DA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1935F315471C16005580DA /* CoreGraphics.framework */; };
+		8B1935FA15471C16005580DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B1935F815471C16005580DA /* InfoPlist.strings */; };
+		8B1935FC15471C16005580DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1935FB15471C16005580DA /* main.m */; };
+		8B19360015471C16005580DA /* SolitaireAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1935FF15471C16005580DA /* SolitaireAppDelegate.m */; };
+		8B19360315471C16005580DA /* SolitaireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B19360215471C16005580DA /* SolitaireViewController.m */; };
+		8B19360615471C16005580DA /* SolitaireViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B19360415471C16005580DA /* SolitaireViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8B1935EB15471C16005580DA /* Solitaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solitaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B1935EF15471C16005580DA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8B1935F115471C16005580DA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8B1935F315471C16005580DA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8B1935F715471C16005580DA /* Solitaire-Info.plist */ = {isa = PBXFileReference; path = "Solitaire-Info.plist"; sourceTree = "<group>"; };
+		8B1935F915471C16005580DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8B1935FB15471C16005580DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8B1935FD15471C16005580DA /* Solitaire-Prefix.pch */ = {isa = PBXFileReference; path = "Solitaire-Prefix.pch"; sourceTree = "<group>"; };
+		8B1935FE15471C16005580DA /* SolitaireAppDelegate.h */ = {isa = PBXFileReference; path = SolitaireAppDelegate.h; sourceTree = "<group>"; };
+		8B1935FF15471C16005580DA /* SolitaireAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SolitaireAppDelegate.m; sourceTree = "<group>"; };
+		8B19360115471C16005580DA /* SolitaireViewController.h */ = {isa = PBXFileReference; path = SolitaireViewController.h; sourceTree = "<group>"; };
+		8B19360215471C16005580DA /* SolitaireViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SolitaireViewController.m; sourceTree = "<group>"; };
+		8B19360515471C16005580DA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SolitaireViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B1935E815471C16005580DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B1935F015471C16005580DA /* UIKit.framework in Frameworks */,
+				8B1935F215471C16005580DA /* Foundation.framework in Frameworks */,
+				8B1935F415471C16005580DA /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8B1935E015471C16005580DA = {
+			isa = PBXGroup;
+			children = (
+				8B1935F515471C16005580DA /* Solitaire */,
+				8B1935EE15471C16005580DA /* Frameworks */,
+				8B1935EC15471C16005580DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8B1935EC15471C16005580DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B1935EB15471C16005580DA /* Solitaire.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B1935EE15471C16005580DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B1935EF15471C16005580DA /* UIKit.framework */,
+				8B1935F115471C16005580DA /* Foundation.framework */,
+				8B1935F315471C16005580DA /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B1935F515471C16005580DA /* Solitaire */ = {
+			isa = PBXGroup;
+			children = (
+				8B1935FE15471C16005580DA /* SolitaireAppDelegate.h */,
+				8B1935FF15471C16005580DA /* SolitaireAppDelegate.m */,
+				8B19360115471C16005580DA /* SolitaireViewController.h */,
+				8B19360215471C16005580DA /* SolitaireViewController.m */,
+				8B19360415471C16005580DA /* SolitaireViewController.xib */,
+				8B1935F615471C16005580DA /* Supporting Files */,
+			);
+			path = Solitaire;
+			sourceTree = "<group>";
+		};
+		8B1935F615471C16005580DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8B1935F715471C16005580DA /* Solitaire-Info.plist */,
+				8B1935F815471C16005580DA /* InfoPlist.strings */,
+				8B1935FB15471C16005580DA /* main.m */,
+				8B1935FD15471C16005580DA /* Solitaire-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B1935EA15471C16005580DA /* Solitaire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B19360915471C16005580DA /* Build configuration list for PBXNativeTarget "Solitaire" */;
+			buildPhases = (
+				8B1935E715471C16005580DA /* Sources */,
+				8B1935E815471C16005580DA /* Frameworks */,
+				8B1935E915471C16005580DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Solitaire;
+			productName = Solitaire;
+			productReference = 8B1935EB15471C16005580DA /* Solitaire.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B1935E215471C16005580DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Solitaire;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Travis Hall";
+			};
+			buildConfigurationList = 8B1935E515471C16005580DA /* Build configuration list for PBXProject "Solitaire" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8B1935E015471C16005580DA;
+			productRefGroup = 8B1935EC15471C16005580DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8B1935EA15471C16005580DA /* Solitaire */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B1935E915471C16005580DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B1935FA15471C16005580DA /* InfoPlist.strings in Resources */,
+				8B19360615471C16005580DA /* SolitaireViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B1935E715471C16005580DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B1935FC15471C16005580DA /* main.m in Sources */,
+				8B19360015471C16005580DA /* SolitaireAppDelegate.m in Sources */,
+				8B19360315471C16005580DA /* SolitaireViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8B1935F815471C16005580DA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B1935F915471C16005580DA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8B19360415471C16005580DA /* SolitaireViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B19360515471C16005580DA /* en */,
+			);
+			name = SolitaireViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8B19360715471C16005580DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		8B19360815471C16005580DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B19360A15471C16005580DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Solitaire/Solitaire-Prefix.pch";
+				INFOPLIST_FILE = "Solitaire/Solitaire-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8B19360B15471C16005580DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Solitaire/Solitaire-Prefix.pch";
+				INFOPLIST_FILE = "Solitaire/Solitaire-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B1935E515471C16005580DA /* Build configuration list for PBXProject "Solitaire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B19360715471C16005580DA /* Debug */,
+				8B19360815471C16005580DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B19360915471C16005580DA /* Build configuration list for PBXNativeTarget "Solitaire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B19360A15471C16005580DA /* Debug */,
+				8B19360B15471C16005580DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8B1935E215471C16005580DA /* Project object */;
+}
