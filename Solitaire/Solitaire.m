@@ -160,7 +160,11 @@
     NSMutableArray *stack = (NSMutableArray *) [self stackWithCard:c];
     [stack removeObject:c];
     [foundation_[i] addObject:c];
-    [faceUpCards addObject:c];
+    
+    Card *last_in_stack = [stack lastObject];
+    if (last_in_stack) {
+        [faceUpCards addObject:last_in_stack];
+    }
 }
 
 - (BOOL)canDropCard:(Card *)c onTableau:(int)i
@@ -183,7 +187,11 @@
     NSMutableArray *stack = (NSMutableArray *) [self stackWithCard:c];
     [stack removeObject:c];
     [tableau_[i] addObject:c];
-    [faceUpCards addObject:c];
+    
+    Card *last_in_stack = [stack lastObject];
+    if (last_in_stack) {
+        [faceUpCards addObject:last_in_stack];
+    }
 }
 
 - (BOOL)canDropFan:(NSArray *)cards onTableau:(int)i
@@ -194,11 +202,16 @@
 
 - (void)didDropFan:(NSArray *)cards onTableau:(int)i
 {
-    NSMutableArray *old_tableau = (NSMutableArray *) [self tableauWithCard:[cards objectAtIndex:0]];
+    NSMutableArray *stack = (NSMutableArray *) [self tableauWithCard:[cards objectAtIndex:0]];
     
     for (Card *c in cards) {
-        [old_tableau removeObject:c];
+        [stack removeObject:c];
         [tableau_[i] addObject:c];
+    }
+    
+    Card *last_in_stack = [stack lastObject];
+    if (last_in_stack) {
+        [faceUpCards addObject:last_in_stack];
     }
 }
 
