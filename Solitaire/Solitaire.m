@@ -153,7 +153,6 @@
         return YES;
     
     return NO;
-    
 }
 
 - (void)didDropCard:(Card *)c onFoundation:(int)i
@@ -226,18 +225,21 @@
     // Deal from the front so we don't have to invert when collecting waste
     Card *c = [stock_ objectAtIndex:0];
     [stock_ removeObject:c];
+    
+    // Flip the previous waste card face down
+    [faceUpCards removeObject:[waste_ lastObject]];
     [waste_ addObject:c];
+    
+    // Flip the dealt card face up
     [faceUpCards addObject:c];
 }
 
 - (void)collectWasteCardsIntoStock
 {
+    // Flip the last waste card face down (into pile)
+    [faceUpCards removeObject:[waste_ lastObject]];
     [stock_ addObjectsFromArray:waste_];
     [waste_ removeAllObjects];
-    
-    for (Card *c in stock_) {
-        [faceUpCards removeObject:c];
-    }
 }
 
 /*
