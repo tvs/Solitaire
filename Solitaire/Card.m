@@ -12,6 +12,7 @@
 
 @synthesize rank;
 @synthesize suit;
+@synthesize faceUp;
 
 - (id)initWithRank:(uint)r Suit:(uint)s
 {
@@ -19,6 +20,7 @@
     if (self) {
         rank = r;
         suit = s;
+        faceUp = NO;
     }
     return self;
 }
@@ -33,21 +35,22 @@
     return rank == [other rank] && suit == [other suit];
 }
 
+// Doubles up as image file name!
 - (NSString *)description
 {
     NSString *s;
     switch (suit) {
         case SPADES:
-            s = @"Spades";
+            s = @"spades";
             break;
         case CLUBS:
-            s = @"Clubs";
+            s = @"clubs";
             break;
         case DIAMONDS:
-            s = @"Diamonds";
+            s = @"diamonds";
             break;
         case HEARTS:
-            s = @"Hearts";
+            s = @"hearts";
             break;
         default:
             s = @"Unknown!";
@@ -57,23 +60,23 @@
     NSString *r;
     switch (rank) {
         case ACE:
-            r = @"Ace";
+            r = @"a";
             break;
         case JACK:
-            r = @"Jack";
+            r = @"j";
             break;
         case QUEEN:
-            r = @"Queen";
+            r = @"q";
             break;
         case KING:
-            r = @"King";
+            r = @"k";
             break;
         default:
             r = [NSString stringWithFormat:@"%d", rank];
             break;
     }
     
-    return [NSString stringWithFormat:@"%@ of %@", r, s];
+    return [NSString stringWithFormat:@"%@-%@-150", s, r];
 }
 
 - (id)copyWithZone:(NSZone *)zone

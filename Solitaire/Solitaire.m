@@ -13,7 +13,6 @@
     NSMutableArray *waste_;
     NSMutableArray *foundation_[4];
     NSMutableArray *tableau_[7];
-    NSMutableSet *faceUpCards;
 }
 
 - (id)init
@@ -51,9 +50,8 @@
     }
     
     // Flip the final cards of the tableau up
-    faceUpCards = [[NSMutableSet alloc] init];
     for (int i = 0; i < 7; i++) {
-        [faceUpCards addObject:[tableau_[i] lastObject]];
+        ((Card *) [tableau_[i] lastObject]).faceUp = YES;
     }
     
     // Place the remainder of the deck into the stock
@@ -119,19 +117,13 @@
     return f;
 }
 
-- (BOOL)isCardFaceUp:(Card *)card
-{
-    return [faceUpCards containsObject:card];
-}
-
-
 - (NSArray *)fanBeginningWithCard:(Card *)card
 {
     NSArray *fan = nil;
     NSArray *t = [self tableauWithCard:card];
  
     // If card is not face up, will return nil fan
-    if ([self isCardFaceUp:card] && t != nil) {
+    if (card.faceUp && t != nil) {
         int index = [t indexOfObject:card];
         NSRange range = NSMakeRange(index, [t count] - index);
         fan = [t subarrayWithRange:range];
@@ -144,12 +136,11 @@
 {
     NSArray *f = [self foundation:i];
     
-    if ([c rank] == ACE && [f count] == 0) {
+    if ([c rank] == ACE && [f count] == 0)
         return YES;
-    }
     
     Card *o = (Card *) [f lastObject];
-    if (([c rank] == [o rank] - 1) && ([c suit] == [o suit]))
+    if (([c rank] == [o rank] + 1) && ([c suit] == [o suit]))
         return YES;
     
     return NO;
@@ -161,9 +152,9 @@
     [stack removeObject:c];
     [foundation_[i] addObject:c];
     
-    Card *last_in_stack = [stack lastObject];
+    Card *last_in_stack = (Card *) [stack lastObject];
     if (last_in_stack) {
-        [faceUpCards addObject:last_in_stack];
+        last_in_stack.faceUp = YES;
     }
 }
 
@@ -171,12 +162,11 @@
 {
     NSArray *t = [self tableau:i];
     
-    if ([c rank] == KING && [t count] == 0) {
+    if ([c rank] == KING && [t count] == 0)
         return YES;
-    }
     
     Card *o = (Card *) [t lastObject];
-    if (([c rank] == [o rank] + 1) && ![c isSameColor:o])
+    if (([c rank] == [o rank] - 1) && ![c isSameColor:o])
         return YES;
     
     return NO;
@@ -188,9 +178,9 @@
     [stack removeObject:c];
     [tableau_[i] addObject:c];
     
-    Card *last_in_stack = [stack lastObject];
+    Card *last_in_stack = (Card *) [stack lastObject];
     if (last_in_stack) {
-        [faceUpCards addObject:last_in_stack];
+        last_in_stack.faceUp = YES;
     }
 }
 
@@ -209,9 +199,9 @@
         [tableau_[i] addObject:c];
     }
     
-    Card *last_in_stack = [stack lastObject];
+    Card *last_in_stack = (Card *) [stack lastObject];
     if (last_in_stack) {
-        [faceUpCards addObject:last_in_stack];
+        last_in_stack.faceUp = YES;
     }
 }
 
@@ -225,7 +215,7 @@
 
 - (void)didFlipCard:(Card *)c
 {
-    [faceUpCards addObject:c];
+    c.faceUp = YES;
 }
 
 - (BOOL)canDealCard
@@ -240,17 +230,17 @@
     [stock_ removeObject:c];
     
     // Flip the previous waste card face down
-    [faceUpCards removeObject:[waste_ lastObject]];
+    ((Card *) [waste_ lastObject]).faceUp = NO;
     [waste_ addObject:c];
     
     // Flip the dealt card face up
-    [faceUpCards addObject:c];
+    c.faceUp = YES;
 }
 
 - (void)collectWasteCardsIntoStock
 {
     // Flip the last waste card face down (into pile)
-    [faceUpCards removeObject:[waste_ lastObject]];
+    ((Card *) [waste_ lastObject]).faceUp = NO;
     [stock_ addObjectsFromArray:waste_];
     [waste_ removeAllObjects];
 }

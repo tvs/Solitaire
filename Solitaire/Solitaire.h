@@ -24,8 +24,6 @@
 - (NSArray *)tableauWithCard:(Card *)card;
 - (NSArray *)stackWithCard:(Card *)card;
 
-- (BOOL)isCardFaceUp:(Card *)card;
-
 - (NSArray *)fanBeginningWithCard:(Card *)card;
 
 - (BOOL)canDropCard:(Card *)c onFoundation:(int)i;
