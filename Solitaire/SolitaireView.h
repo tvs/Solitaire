@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Solitaire.h"
 
 @interface SolitaireView : UIView
+
+@property (strong,nonatomic) Solitaire *game;
+
+- (void)iterateGameWithBlock:(void (^)(Card *c))block;
+- (void)addCardViewToSubview:(Card *)c;
 
 @end

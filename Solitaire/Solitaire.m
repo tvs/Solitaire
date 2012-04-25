@@ -11,8 +11,8 @@
 @implementation Solitaire {
     NSMutableArray *stock_;
     NSMutableArray *waste_;
-    NSMutableArray *foundation_[4];
-    NSMutableArray *tableau_[7];
+    NSMutableArray *foundation_[NUM_FOUNDATIONS];
+    NSMutableArray *tableau_[NUM_TABLEAUS];
 }
 
 - (id)init
@@ -36,12 +36,12 @@
     waste_ = [[NSMutableArray alloc] init];
     
     // Start the empty foundation
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < NUM_FOUNDATIONS; i++) {
         foundation_[i] = [[NSMutableArray alloc] init];
     }
     
     // Deal cards from deck into tableau
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < NUM_TABLEAUS; i++) {
         tableau_[i] = [[NSMutableArray alloc] init];
         for (int j = 0; j <= i; j++) {
             [tableau_[i] addObject:[deck objectAtIndex:0]];
@@ -50,7 +50,7 @@
     }
     
     // Flip the final cards of the tableau up
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < NUM_TABLEAUS; i++) {
         ((Card *) [tableau_[i] lastObject]).faceUp = YES;
     }
     
@@ -60,8 +60,8 @@
 
 - (BOOL)gameWon
 {
-    for (int i = 0; i < 4; i++) {
-        if (foundation_[i].count != 13)
+    for (int i = 0; i < NUM_FOUNDATIONS; i++) {
+        if (foundation_[i].count != NUM_CARDS_IN_SUIT)
             return NO;
     }
     return YES;
@@ -84,7 +84,7 @@
 
 - (NSArray *)foundationWithCard:(Card *)card
 {
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < NUM_TABLEAUS; i++) {
         if ([foundation_[i] containsObject:card])
             return foundation_[i];
     }
@@ -98,7 +98,7 @@
 
 - (NSArray *)tableauWithCard:(Card *)card
 {
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < NUM_TABLEAUS; i++) {
         if ([tableau_[i] containsObject:card])
             return tableau_[i];
     }

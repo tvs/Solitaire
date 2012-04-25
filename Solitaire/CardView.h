@@ -15,6 +15,10 @@
 @property (strong, nonatomic) Card *card;
 
 - (id)initWithFrame:(CGRect)frame andCard:(Card *)c;
+
+- (NSUInteger)hash;
+- (BOOL)isEqual:(id)other;
+
 + (UIImage *)backImage;
 
 @end

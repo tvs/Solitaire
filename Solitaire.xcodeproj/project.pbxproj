@@ -169,6 +169,7 @@
 		8BB3B9E815486EB900C6196C /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
 		8BB3B9F21548862600C6196C /* SolitaireView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolitaireView.h; sourceTree = "<group>"; };
 		8BB3B9F31548862600C6196C /* SolitaireView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SolitaireView.m; sourceTree = "<group>"; };
+		8BB3B9F515489A9500C6196C /* SolitaireDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SolitaireDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +221,7 @@
 				8B1935FF15471C16005580DA /* SolitaireAppDelegate.m */,
 				8B19360115471C16005580DA /* SolitaireViewController.h */,
 				8B19360215471C16005580DA /* SolitaireViewController.m */,
+				8BB3B9F515489A9500C6196C /* SolitaireDelegate.h */,
 				8B19360415471C16005580DA /* SolitaireViewController.xib */,
 				8BB3B9F21548862600C6196C /* SolitaireView.h */,
 				8BB3B9F31548862600C6196C /* SolitaireView.m */,

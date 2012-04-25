@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Card.h"
 
+#define NUM_FOUNDATIONS 4
+#define NUM_TABLEAUS 7
+#define NUM_CARDS_IN_SUIT 13
+
 @interface Solitaire : NSObject
 
 - (id)init;

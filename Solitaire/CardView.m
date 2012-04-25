@@ -28,6 +28,17 @@ CGPoint startCenter;
     return self;
 }
 
+- (NSUInteger)hash
+{
+    return [card hash];
+}
+
+- (BOOL)isEqual:(id)other
+{
+    return [card isEqual:[other card]];
+}
+
+// TODO Add UI Image view and put image in there
 - (void)drawRect:(CGRect)rect
 {
     if (card.faceUp)
