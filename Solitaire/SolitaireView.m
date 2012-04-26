@@ -12,7 +12,7 @@
 
 
 #define MARGIN 20
-#define BUFFER 4
+#define BUFFER 2
 
 #define DIFF_TAB_FOUND (NUM_TABLEAUS - NUM_FOUNDATIONS)
 
