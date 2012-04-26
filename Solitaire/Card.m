@@ -37,7 +37,7 @@
 
 // Doubles up as image file name!
 - (NSString *)description
-{
+{    
     NSString *s;
     switch (suit) {
         case SPADES:

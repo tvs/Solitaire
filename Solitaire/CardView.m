@@ -21,8 +21,14 @@ CGPoint startCenter;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        card = c;
-        cardImage = [UIImage imageNamed:[c description]];
+        if (c != nil){
+            card = c;
+            cardImage = [UIImage imageNamed:[c description]];
+        } else {
+            // Blank card
+            cardImage = [CardView emptyImage];
+            [self setUserInteractionEnabled:NO];
+        }
         self.opaque = NO;
     }
     return self;
@@ -35,13 +41,19 @@ CGPoint startCenter;
 
 - (BOOL)isEqual:(id)other
 {
+    // Return equivalent if the subview contains the card
+    // Lets us do lookup in the mutable set for the view containing a card
+    if ([other class] == [Card class]) {
+        return [card isEqual:other];
+    }
+    
     return [card isEqual:[other card]];
 }
 
 // TODO Add UI Image view and put image in there
 - (void)drawRect:(CGRect)rect
 {
-    if (card.faceUp)
+    if (card == nil || card.faceUp)
         [self.cardImage drawInRect:rect];
     else
         [[CardView backImage] drawInRect:rect];
@@ -75,6 +87,15 @@ CGPoint startCenter;
         backImage = [UIImage imageNamed:@"back-red-150-2"];
     }
     return backImage;
+}
+
++ (UIImage *)emptyImage
+{
+    static UIImage *emptyImage = nil;
+    if (emptyImage == nil) {
+        emptyImage = [UIImage imageNamed:@"empty"];
+    }
+    return emptyImage;
 }
 
 @end

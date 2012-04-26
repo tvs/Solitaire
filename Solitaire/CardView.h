@@ -20,5 +20,6 @@
 - (BOOL)isEqual:(id)other;
 
 + (UIImage *)backImage;
++ (UIImage *)emptyImage;
 
 @end

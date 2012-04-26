@@ -22,10 +22,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.game = [[Solitaire alloc] init];
-
-    self.gameView.game = self.game;
     
     [self.game freshGame];
+    self.gameView.game = self.game;
 }
 
 - (void)viewDidUnload
@@ -43,6 +42,7 @@
 
 - (IBAction)newGame:(id)sender {
     [self.game freshGame];
+    self.gameView.game = self.game;
     [self.gameView setNeedsDisplay];
 }
 
