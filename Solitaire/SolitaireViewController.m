@@ -25,6 +25,7 @@
     
     [self.game freshGame];
     self.gameView.game = self.game;
+    self.gameView.delegate = self;
 }
 
 - (void)viewDidUnload
@@ -37,7 +38,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return YES;
+    return NO;
 }
 
 - (IBAction)newGame:(id)sender {
@@ -46,18 +47,41 @@
     [self.gameView setNeedsDisplay];
 }
 
-- (void)movedFan:(NSArray *)fan toTableau:(uint)i
+- (void)moveStockToWaste
 {
-    if ([game canDropFan:fan onTableau:i]) {
-        [game didDropFan:fan onTableau:i];
+    if ([game canDealCard]) {
+        [game didDealCard];
+    }
+    else {
+        [game collectWasteCardsIntoStock];
     }
 }
 
-- (void)movedCard:(Card *)c toFoundation:(uint)i
+- (BOOL)movedFan:(NSArray *)fan toTableau:(uint)i
+{
+    if ([game canDropFan:fan onTableau:i]) {
+        [game didDropFan:fan onTableau:i];
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)movedCard:(Card *)c toFoundation:(uint)i
 {
     if ([game canDropCard:c onFoundation:i]) {
         [game didDropCard:c onFoundation:i];
+        return YES;
     }
+    return NO;
+}
+
+- (BOOL)flipCard:(Card *)c
+{
+    if ([game canFlipCard:c]) {
+        [game didFlipCard:c];
+        return YES;
+    }
+    return NO;
 }
 
 @end

@@ -11,7 +11,9 @@
 
 @protocol SolitaireDelegate <NSObject>
 
-- (void)movedFan:(NSArray *)fan toTableau:(uint)i;
-- (void)movedCard:(Card *)c toFoundation:(uint)i;
+- (BOOL)movedFan:(NSArray *)fan toTableau:(uint)i;
+- (BOOL)movedCard:(Card *)c toFoundation:(uint)i;
+- (void)moveStockToWaste;
+- (BOOL)flipCard:(Card *)c;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "CardView.h"
 #import "Card.h"
+#import "SolitaireView.h"
 
 @implementation CardView {
 CGPoint touchStartPoint;
@@ -27,7 +28,7 @@ CGPoint startCenter;
         } else {
             // Blank card
             cardImage = [CardView emptyImage];
-            [self setUserInteractionEnabled:NO];
+//            [self setUserInteractionEnabled:NO];
         }
         self.opaque = NO;
     }
@@ -60,23 +61,19 @@ CGPoint startCenter;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    touchStartPoint = [[touches anyObject] locationInView:self.superview];
-    startCenter = self.center;
+    [(SolitaireView *)[self superview] touchesBegan:touches withEvent:event andView:self];
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    CGPoint touchPoint = [[touches anyObject] locationInView:self.superview]; 
-    CGPoint delta = CGPointMake(touchPoint.x - touchStartPoint.x, touchPoint.y - touchStartPoint.y);
-    CGPoint newCenter = CGPointMake(startCenter.x + delta.x, startCenter.y + delta.y);
-    self.center = newCenter;
+    [(SolitaireView *)[self superview] touchesMoved:touches withEvent:event andView:self];
 }
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    
+    [(SolitaireView *)[self superview] touchesCancelled:touches withEvent:event andView:self];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
+    [(SolitaireView *)[self superview] touchesEnded:touches withEvent:event andView:self];
 }
 
 // Keep this as a static class variable since we only need one for every instance

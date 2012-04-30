@@ -56,6 +56,7 @@
     
     // Place the remainder of the deck into the stock
     stock_ = deck;
+    [self didDealCard];
 }
 
 - (BOOL)gameWon
@@ -120,7 +121,7 @@
 - (NSArray *)fanBeginningWithCard:(Card *)card
 {
     NSArray *fan = nil;
-    NSArray *t = [self tableauWithCard:card];
+    NSArray *t = [self stackWithCard:card];
  
     // If card is not face up, will return nil fan
     if (card.faceUp && t != nil) {
@@ -151,11 +152,6 @@
     NSMutableArray *stack = (NSMutableArray *) [self stackWithCard:c];
     [stack removeObject:c];
     [foundation_[i] addObject:c];
-    
-    Card *last_in_stack = (Card *) [stack lastObject];
-    if (last_in_stack) {
-        last_in_stack.faceUp = YES;
-    }
 }
 
 - (BOOL)canDropCard:(Card *)c onTableau:(int)i
@@ -177,11 +173,6 @@
     NSMutableArray *stack = (NSMutableArray *) [self stackWithCard:c];
     [stack removeObject:c];
     [tableau_[i] addObject:c];
-    
-    Card *last_in_stack = (Card *) [stack lastObject];
-    if (last_in_stack) {
-        last_in_stack.faceUp = YES;
-    }
 }
 
 - (BOOL)canDropFan:(NSArray *)cards onTableau:(int)i
@@ -192,16 +183,11 @@
 
 - (void)didDropFan:(NSArray *)cards onTableau:(int)i
 {
-    NSMutableArray *stack = (NSMutableArray *) [self tableauWithCard:[cards objectAtIndex:0]];
+    NSMutableArray *stack = (NSMutableArray *) [self stackWithCard:[cards objectAtIndex:0]];
     
     for (Card *c in cards) {
         [stack removeObject:c];
         [tableau_[i] addObject:c];
-    }
-    
-    Card *last_in_stack = (Card *) [stack lastObject];
-    if (last_in_stack) {
-        last_in_stack.faceUp = YES;
     }
 }
 
@@ -230,7 +216,6 @@
     [stock_ removeObject:c];
     
     // Flip the previous waste card face down
-    ((Card *) [waste_ lastObject]).faceUp = NO;
     [waste_ addObject:c];
     
     // Flip the dealt card face up
