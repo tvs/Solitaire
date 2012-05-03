@@ -59,6 +59,34 @@
     [self didDealCard];
 }
 
+- (void) cheat
+{
+    for (int i = 0; i < NUM_FOUNDATIONS; i++) {
+        foundation_[i] = [[NSMutableArray alloc] init];
+    }
+    
+    // Deal cards from deck into tableau
+    for (int i = 0; i < NUM_TABLEAUS; i++) {
+        tableau_[i] = [[NSMutableArray alloc] init];
+    }
+    
+    NSMutableArray *deck = (NSMutableArray *) [Card deck];
+    for (uint i = ACE; i <= KING; i++) {
+        for (uint j = SPADES; j <= HEARTS; j++) {
+            Card *c = [deck objectAtIndex:0];
+            c.faceUp = YES;
+            [foundation_[j - SPADES] addObject:c];
+            [deck removeObjectAtIndex:0];
+        }
+    }
+    
+    [tableau_[0] addObject:[foundation_[0] lastObject]];
+    [foundation_[0] removeObjectAtIndex:[foundation_[0] count] -1];
+    
+    stock_ = deck;
+    waste_ = [[NSMutableArray alloc] init];
+}
+
 - (BOOL)gameWon
 {
     for (int i = 0; i < NUM_FOUNDATIONS; i++) {
@@ -115,6 +143,11 @@
     if (f == nil && [waste_ lastObject] == card) {
         f = waste_;
     }
+    
+    if (f == nil && [stock_ lastObject] == card) {
+        f = stock_;
+    }
+    
     return f;
 }
 
@@ -193,7 +226,7 @@
 
 - (BOOL)canFlipCard:(Card *)c
 {
-    NSArray *t = [self tableauWithCard:c];
+    NSArray *t = [self stackWithCard:c];
     if (t != nil && [t lastObject] == c)
         return YES;
     return NO;
@@ -201,7 +234,11 @@
 
 - (void)didFlipCard:(Card *)c
 {
-    c.faceUp = YES;
+    if ([stock_ containsObject:c]) {
+        [self didDealCard];
+    } else {
+        c.faceUp = YES;   
+    }
 }
 
 - (BOOL)canDealCard
@@ -225,7 +262,9 @@
 - (void)collectWasteCardsIntoStock
 {
     // Flip the last waste card face down (into pile)
-    ((Card *) [waste_ lastObject]).faceUp = NO;
+    for (Card *c in waste_) {
+        c.faceUp = NO;
+    }
     [stock_ addObjectsFromArray:waste_];
     [waste_ removeAllObjects];
 }

@@ -47,6 +47,8 @@
 
 - (void)collectWasteCardsIntoStock;
 
+- (void)cheat;
+
 + (void)shuffleDeck:(NSMutableArray *)deck;
 
 @end

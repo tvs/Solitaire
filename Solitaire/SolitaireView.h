@@ -13,6 +13,7 @@
 @interface SolitaireView : UIView
 
 @property (strong,nonatomic) Solitaire *game;
+@property (strong,nonatomic) NSMutableDictionary *cards;
 @property (weak,nonatomic) IBOutlet id <SolitaireDelegate> delegate;
 
 - (void)iterateGameWithBlock:(void (^)(Card *c))block;

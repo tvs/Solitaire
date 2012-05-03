@@ -7,6 +7,7 @@
 //
 
 #import "SolitaireViewController.h"
+#import "CardView.h"
 
 @interface SolitaireViewController ()
 
@@ -26,6 +27,7 @@
     [self.game freshGame];
     self.gameView.game = self.game;
     self.gameView.delegate = self;
+    [self becomeFirstResponder];
 }
 
 - (void)viewDidUnload
@@ -36,9 +38,46 @@
     // Release any retained subviews of the main view.
 }
 
+// Changed to respond to shake events
+- (void)viewDidAppear:(BOOL)animated
+{
+    [gameView becomeFirstResponder];
+    [super viewDidAppear:animated];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [gameView resignFirstResponder];
+    [super viewWillDisappear:animated];
+}
+
+
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    NSLog(@"Shake shake!"); 
+    if (event.subtype == UIEventSubtypeMotionShake) {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Cheater!"
+                                                          message:@"I hope you can live with yourself..."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"Ugh"
+                                                otherButtonTitles:nil];
+        [message show];
+        
+        self.gameView.game = self.game;
+        
+        [game cheat];
+        for (CardView *v in [[gameView cards] allValues]) {
+            if (v.card.faceUp == NO) 
+                v.card.faceUp = YES;
+            [v setNeedsDisplay];
+        }
+        [gameView computeLayoutSubviews];
+    }
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return NO;
+    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 - (IBAction)newGame:(id)sender {
